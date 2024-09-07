@@ -8,12 +8,14 @@ import { useState } from "react";
 import { DishData } from "../types/interfaces";
 import CartIcon from "../components/CartIcon";
 import { StatusBar } from "expo-status-bar";
+import { useDispatch } from "react-redux";
 
 export default function DishScreen() {
   const [isChecked, setChecked] = useState(false);
   const navigation = useNavigation();
   const { params } = useRoute();
   let items = (params as { data: DishData }).data;
+  const dispatch = useDispatch();
 
   return (
     <View className="h-full">

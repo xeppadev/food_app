@@ -84,6 +84,7 @@ export default function RestaurantScreen() {
           <ScrollView
             horizontal
             className="overflow-visible py-2"
+            showsHorizontalScrollIndicator={false}
             contentContainerStyle={{ paddingHorizontal: 10 }}
           >
             {Object.keys(items.dishes).map((dish, index) => {
