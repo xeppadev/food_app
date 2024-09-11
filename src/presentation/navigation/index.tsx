@@ -15,6 +15,9 @@ import CartScreen from "../screens/CartScreen";
 import CheckoutScreen from "../screens/CheckoutScreen";
 import OrderPreScreen from "../screens/OrderPreScreen";
 import DeliveryScreen from "../screens/DeliveryScreen";
+import WelcomeScreen from "../screens/WelcomeScreen";
+import SignUpScreen from "../screens/SignUpScreen";
+import SignInScreen from "../screens/SignInScreen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -58,7 +61,16 @@ function RestaurantStack() {
 export default function Navigation() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Navigator
+        screenOptions={{ headerShown: false }}
+        initialRouteName="Welcome"
+      >
+        {/* Pantalla de Welcome */}
+        <Stack.Screen name="Welcome" component={WelcomeScreen} />
+        {/* Pantalla de Sign Up */}
+        <Stack.Screen name="SignUp" component={SignUpScreen} />
+        {/* Pantalla de Sign In */}
+        <Stack.Screen name="SignIn" component={SignInScreen} />
         {/* Tab Navigator */}
         <Stack.Screen name="MainTabs" component={MainTabs} />
         {/* Stack independiente para Restaurant y Dish */}
