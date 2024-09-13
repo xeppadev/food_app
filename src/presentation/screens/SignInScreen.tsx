@@ -11,10 +11,15 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { useState } from "react";
 import { Iconify } from "react-native-iconify";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigation, NavigationProp } from "@react-navigation/native";
-import { initializeApp } from "firebase/app";
-import { firebaseConfig } from "../../../firebase-config";
+import { auth } from "../../config/firebase-config";
+import { RootState } from "../store";
+import { setUserLoading } from "../store/slices/userSlice";
+import Loading from "../components/Loading";
+
 export type RootStackParamList = {
   MainTabs: undefined;
 
@@ -28,24 +33,26 @@ export type RootStackParamList = {
 export default function SignInScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { userLoading } = useSelector((state: RootState) => state.user);
+  const dispatch = useDispatch();
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-
-  const handleSignIn = () => {
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        navigation.navigate("MainTabs");
-        console.log(user);
-      })
-      .catch((error) => {
+  const handleSignIn = async () => {
+    if (email && password) {
+      try {
+        dispatch(setUserLoading(true));
+        await signInWithEmailAndPassword(auth, email, password);
+        dispatch(setUserLoading(false));
+      } catch (error: any) {
+        dispatch(setUserLoading(false));
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
         Alert.alert("Error", errorMessage);
-      });
+      }
+      dispatch(setUserLoading(false));
+    } else {
+      Alert.alert("Error", "Email and password are required");
+    }
   };
 
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
@@ -71,26 +78,26 @@ export default function SignInScreen() {
         <View className="px-6 mt-16 space-y-1">
           <Text className="text-4xl font-bold">Login</Text>
           <View className="flex flex-col pt-4 space-y-8">
-            <View className=" space-y-1">
+            <View className=" space-y-2">
               <Text className="text-base text-[#9796A1] font-medium">
                 Email Address
               </Text>
-              <View className="border f rounded-2xl border-[#EEEEEE] p-4">
+              <View className="border flex items-center  rounded-2xl border-[#EEEEEE] p-4 ">
                 <TextInput
-                  className="w-full text-base font-medium"
+                  className="w-full h-7  text-base font-medium"
                   placeholder="Your Email Address"
                   placeholderTextColor={"#9796A1"}
                   onChange={(e) => setEmail(e.nativeEvent.text)}
                 />
               </View>
             </View>
-            <View className=" space-y-1">
+            <View className=" space-y-2">
               <Text className="text-base text-[#9796A1] font-medium">
                 Password
               </Text>
               <View className="border f rounded-2xl border-[#EEEEEE] p-4">
                 <TextInput
-                  className="w-full text-base font-medium"
+                  className="w-full h-7 text-base font-medium"
                   placeholder="Password"
                   placeholderTextColor={"#9796A1"}
                   secureTextEntry={true}
@@ -106,7 +113,13 @@ export default function SignInScreen() {
                 handleSignIn();
               }}
             >
-              <Text className="text-lg font-semibold text-white">Login</Text>
+              {userLoading ? (
+                <Loading />
+              ) : (
+                <Text className="text-white text-lg font-semibold">
+                  Sign In
+                </Text>
+              )}
             </TouchableOpacity>
 
             <TouchableOpacity

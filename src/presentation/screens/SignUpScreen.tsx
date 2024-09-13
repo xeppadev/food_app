@@ -11,10 +11,14 @@ import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import React from "react";
 import { Iconify } from "react-native-iconify";
-import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { firebaseConfig } from "../../../firebase-config";
+import { useSelector, useDispatch } from "react-redux";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../config/firebase-config";
+import { RootState } from "../store";
 import { useNavigation, NavigationProp } from "@react-navigation/native";
+import { setUserLoading } from "../store/slices/userSlice";
+import Loading from "../components/Loading";
+
 export type RootStackParamList = {
   MainTabs: undefined;
 
@@ -26,24 +30,25 @@ export type RootStackParamList = {
 export default function SignUpScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { userLoading } = useSelector((state: RootState) => state.user);
+  const dispatch = useDispatch();
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-
-  const handleSignUp = () => {
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        navigation.navigate("MainTabs");
-        console.log(user);
-      })
-      .catch((error) => {
+  const handleSignUp = async () => {
+    if (email && password) {
+      try {
+        dispatch(setUserLoading(true));
+        await createUserWithEmailAndPassword(auth, email, password);
+        dispatch(setUserLoading(false));
+      } catch (error: any) {
+        dispatch(setUserLoading(false));
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
         Alert.alert("Error", errorMessage);
-      });
+      }
+    } else {
+      Alert.alert("Error", "Email and password are required");
+    }
   };
 
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
@@ -75,7 +80,7 @@ export default function SignUpScreen() {
               </Text>
               <View className="border f rounded-2xl border-[#EEEEEE] p-4">
                 <TextInput
-                  className="w-full text-base font-medium"
+                  className="w-full text-base h-7 font-medium"
                   placeholder="Your Full Name"
                   placeholderTextColor={"#9796A1"}
                 />
@@ -87,7 +92,7 @@ export default function SignUpScreen() {
               </Text>
               <View className="border   rounded-2xl border-[#EEEEEE]  p-4">
                 <TextInput
-                  className="w-full text-base font-medium"
+                  className="w-full text-base h-7 font-medium"
                   placeholder="Your Email Address"
                   placeholderTextColor={"#9796A1"}
                   onChange={(e) => setEmail(e.nativeEvent.text)}
@@ -100,7 +105,7 @@ export default function SignUpScreen() {
               </Text>
               <View className="border f rounded-2xl border-[#EEEEEE] p-4">
                 <TextInput
-                  className="w-full text-base font-medium"
+                  className="w-full text-base h-7 font-medium"
                   placeholder="Password"
                   placeholderTextColor={"#9796A1"}
                   secureTextEntry={true}
@@ -116,7 +121,13 @@ export default function SignUpScreen() {
                 handleSignUp();
               }}
             >
-              <Text className="text-lg font-semibold text-white">Sign In</Text>
+              {userLoading ? (
+                <Loading />
+              ) : (
+                <Text className="text-white text-lg font-semibold">
+                  Sign Up
+                </Text>
+              )}
             </TouchableOpacity>
             <View className="flex flex-row items-center justify-center space-x-2">
               <Text className="text-black text-base font-medium">

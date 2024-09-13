@@ -10,9 +10,15 @@ import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import { Iconify } from "react-native-iconify";
+import { signOut } from "firebase/auth";
+import { auth } from "@/config/firebase-config";
 
 export default function PerfilScreen() {
   const navigation = useNavigation();
+  const handleSignOut = async () => {
+    await signOut(auth);
+  };
+
   return (
     <>
       <StatusBar style="light" />
@@ -85,6 +91,14 @@ export default function PerfilScreen() {
                 />
               </View>
             </View>
+            <TouchableOpacity
+              onPress={() => {
+                handleSignOut();
+              }}
+              className="bg-[#FE724C] rounded-3xl p-4 flex items-center justify-center"
+            >
+              <Text className="text-base text-white font-medium">Sign Out</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </ScrollView>
