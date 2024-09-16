@@ -11,12 +11,12 @@ export default function CheckoutScreen() {
   const navigation = useNavigation<NavigationProp<RootParamList>>();
   return (
     <SafeAreaView className="bg-white flex-1">
-      <View className="relative py-4 shadow">
+      <View className="relative mb-3 shadow">
         <TouchableOpacity
           onPress={() => {
             navigation.goBack();
           }}
-          className=" absolute z-10 left-5 top-5 rounded-full bg-white p-2"
+          className=" absolute z-10 left-5 top-1 rounded-full bg-white p-2"
         >
           <Iconify icon="mdi:arrow-left" size={20} color="#000" />
         </TouchableOpacity>

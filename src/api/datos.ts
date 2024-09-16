@@ -66,6 +66,8 @@ export const feactures = {
         type: "Free Delivery",
         logo: require("../../assets/restaurants/mcdonals.png"),
         colorLogo: "#DA291C",
+        latitude: 37.78825,
+        longitude: -122.4324,
         stars: 4.5,
         time: "30-40 min",
         reviews: 120,
@@ -79,6 +81,8 @@ export const feactures = {
                 "Brown the beef better. Lean ground beef – I like to use 85% lean angus. Garlic – use fresh  chopped. Spices – chili powder, cumin, onion powder.",
               price: 25.99,
               restaurant: "McDonald's",
+              latitude: 37.78825,
+              longitude: -122.4324,
               image: require("../../assets/dishes/dish4.png"),
               reviews: 50,
               stars: 4.8,
@@ -102,6 +106,8 @@ export const feactures = {
                 "Brown the beef better. Lean ground beef – I like to use 85% lean angus. Garlic – use fresh  chopped. Spices – chili powder, cumin, onion powder.",
               price: 22.99,
               restaurant: "McDonald's",
+              latitude: 37.78825,
+              longitude: -122.4324,
               image: require("../../assets/dishes/dish7.png"),
               reviews: 45,
               stars: 4.7,
@@ -124,6 +130,8 @@ export const feactures = {
               description:
                 "Brown the beef better. Lean ground beef – I like to use 85% lean angus. Garlic – use fresh  chopped. Spices – chili powder, cumin, onion powder.",
               price: 9.99,
+              latitude: 37.78825,
+              longitude: -122.4324,
               restaurant: "McDonald's",
               image: require("../../assets/dishes/dish6.png"),
               reviews: 60,
@@ -138,6 +146,8 @@ export const feactures = {
               description:
                 "Brown the beef better. Lean ground beef – I like to use 85% lean angus. Garlic – use fresh  chopped. Spices – chili powder, cumin, onion powder.",
               price: 18.99,
+              latitude: 37.78825,
+              longitude: -122.4324,
               restaurant: "McDonald's",
               image: require("../../assets/dishes/dish7.png"),
               reviews: 40,
@@ -163,6 +173,8 @@ export const feactures = {
               price: 16.99,
               image: require("../../assets/dishes/dish8.png"),
               reviews: 55,
+              latitude: 37.78825,
+              longitude: -122.4324,
               restaurant: "McDonald's",
               stars: 4.7,
               extras: [
@@ -184,6 +196,8 @@ export const feactures = {
               description:
                 "Brown the beef better. Lean ground beef – I like to use 85% lean angus. Garlic – use fresh  chopped. Spices – chili powder, cumin, onion powder.",
               price: 14.99,
+              latitude: 37.78825,
+              longitude: -122.4324,
               image: require("../../assets/dishes/dish9.png"),
               reviews: 35,
               restaurant: "McDonald's",
@@ -210,6 +224,8 @@ export const feactures = {
                 "Brown the beef better. Lean ground beef – I like to use 85% lean angus. Garlic – use fresh  chopped. Spices – chili powder, cumin, onion powder.",
               price: 21.99,
               discount: 15.99,
+              latitude: 37.78825,
+              longitude: -122.4324,
               porcentajedescount: 30,
               image: require("../../assets/dishes/dish8.png"),
               reviews: 45,
@@ -231,6 +247,8 @@ export const feactures = {
               price: 18.99,
               restaurant: "Starbucks",
               discount: 15.99,
+              latitude: 37.78825,
+              longitude: -122.4324,
               porcentajedescount: 30,
               image: require("../../assets/dishes/dish1.png"),
               reviews: 55,
@@ -254,6 +272,8 @@ export const feactures = {
               porcentajedescount: 30,
               image: require("../../assets/dishes/dish5.png"),
               reviews: 30,
+              latitude: 37.78825,
+              longitude: -122.4324,
               restaurant: "Starbucks",
               stars: 4.5,
               extras: [
@@ -281,6 +301,8 @@ export const feactures = {
         logo: require("../../assets/restaurants/starbucks.png"),
         colorLogo: "#036635",
         stars: 4.3,
+        latitude: 30.78825,
+        longitude: -102.4324,
         type: "Free Delivery",
         reviews: 95,
         time: "20-30 min",
@@ -293,6 +315,8 @@ export const feactures = {
               description:
                 "Brown the beef better. Lean ground beef – I like to use 85% lean angus. Garlic – use fresh  chopped. Spices – chili powder, cumin, onion powder.",
               price: 28.99,
+              latitude: 30.78825,
+              longitude: -102.4324,
               restaurant: "Starbucks",
               image: require("../../assets/dishes/dish5.png"),
               reviews: 65,
@@ -318,6 +342,8 @@ export const feactures = {
               price: 32.99,
               image: require("../../assets/dishes/dish2.png"),
               reviews: 50,
+              latitude: 30.78825,
+              longitude: -102.4324,
               stars: 4.7,
               restaurant: "Starbucks",
               extras: [
@@ -339,6 +365,8 @@ export const feactures = {
               description:
                 "Brown the beef better. Lean ground beef – I like to use 85% lean angus. Garlic – use fresh  chopped. Spices – chili powder, cumin, onion powder.",
               price: 12.99,
+              latitude: 30.78825,
+              longitude: -102.4324,
               restaurant: "McDonald's",
               image: require("../../assets/dishes/dish8.png"),
               reviews: 40,
@@ -364,6 +392,8 @@ export const feactures = {
               description:
                 "Brown the beef better. Lean ground beef – I like to use 85% lean angus. Garlic – use fresh  chopped. Spices – chili powder, cumin, onion powder.",
               price: 21.99,
+              latitude: 30.78825,
+              longitude: -102.4324,
               image: require("../../assets/dishes/dish8.png"),
               reviews: 45,
               restaurant: "Starbucks",
@@ -382,6 +412,8 @@ export const feactures = {
               description:
                 "Brown the beef better. Lean ground beef – I like to use 85% lean angus. Garlic – use fresh  chopped. Spices – chili powder, cumin, onion powder.",
               price: 18.99,
+              latitude: 30.78825,
+              longitude: -102.4324,
               restaurant: "Starbucks",
               image: require("../../assets/dishes/dish1.png"),
               reviews: 55,
@@ -401,6 +433,8 @@ export const feactures = {
                 "Brown the beef better. Lean ground beef – I like to use 85% lean angus. Garlic – use fresh  chopped. Spices – chili powder, cumin, onion powder.",
               restaurant: "Starbucks",
               price: 15.99,
+              latitude: 30.78825,
+              longitude: -102.4324,
               image: require("../../assets/dishes/dish5.png"),
               reviews: 30,
               stars: 4.5,
@@ -429,6 +463,8 @@ export const feactures = {
               porcentajedescount: 30,
               image: require("../../assets/dishes/dish8.png"),
               reviews: 45,
+              latitude: 30.78825,
+              longitude: -102.4324,
               restaurant: "Starbucks",
               stars: 4.6,
               extras: [
@@ -450,6 +486,8 @@ export const feactures = {
               porcentajedescount: 30,
               image: require("../../assets/dishes/dish1.png"),
               reviews: 55,
+              latitude: 30.78825,
+              longitude: -102.4324,
               stars: 4.7,
               extras: [
                 {
@@ -470,6 +508,8 @@ export const feactures = {
               porcentajedescount: 30,
               image: require("../../assets/dishes/dish5.png"),
               reviews: 30,
+              latitude: 30.78825,
+              longitude: -102.4324,
               restaurant: "Starbucks",
               stars: 4.5,
               extras: [
@@ -496,6 +536,8 @@ export const feactures = {
         address: "Plaza Principal 789, Ciudad",
         logo: require("../../assets/restaurants/pizzahut.png"),
         stars: 4.7,
+        latitude: 40.78825,
+        longitude: -112.4324,
         colorLogo: "#FFC529",
         type: "Free Delivery",
         reviews: 110,
@@ -509,6 +551,8 @@ export const feactures = {
               description:
                 "Brown the beef better. Lean ground beef – I like to use 85% lean angus. Garlic – use fresh  chopped. Spices – chili powder, cumin, onion powder.",
               price: 24.99,
+              latitude: 40.78825,
+              longitude: -112.4324,
               restaurant: "Pizza Hut",
               image: require("../../assets/dishes/dish10.png"),
               reviews: 70,
@@ -534,6 +578,8 @@ export const feactures = {
               price: 29.99,
               image: require("../../assets/dishes/dish11.png"),
               reviews: 55,
+              latitude: 40.78825,
+              longitude: -112.4324,
               restaurant: "Pizza Hut",
               stars: 4.8,
               extras: [
@@ -558,6 +604,8 @@ export const feactures = {
               image: require("../../assets/dishes/dish12.png"),
               reviews: 45,
               stars: 4.7,
+              latitude: 40.78825,
+              longitude: -112.4324,
               restaurant: "Pizza Hut",
               extras: [
                 {
@@ -580,6 +628,8 @@ export const feactures = {
               description:
                 "Brown the beef better. Lean ground beef – I like to use 85% lean angus. Garlic – use fresh  chopped. Spices – chili powder, cumin, onion powder.",
               price: 2.99,
+              latitude: 40.78825,
+              longitude: -112.4324,
               restaurant: "Pizza Hut",
               image: require("../../assets/dishes/dish12.png"),
               reviews: 80,
@@ -603,6 +653,8 @@ export const feactures = {
               description:
                 "Brown the beef better. Lean ground beef – I like to use 85% lean angus. Garlic – use fresh  chopped. Spices – chili powder, cumin, onion powder.",
               price: 15.99,
+              latitude: 40.78825,
+              longitude: -112.4324,
               restaurant: "Pizza Hut",
               image: require("../../assets/dishes/dish5.png"),
               reviews: 70,
@@ -626,6 +678,8 @@ export const feactures = {
               description:
                 "Brown the beef better. Lean ground beef – I like to use 85% lean angus. Garlic – use fresh  chopped. Spices – chili powder, cumin, onion powder.",
               price: 12.99,
+              latitude: 40.78825,
+              longitude: -112.4324,
               restaurant: "Pizza Hut",
               image: require("../../assets/dishes/dish14.png"),
               reviews: 65,
@@ -652,6 +706,8 @@ export const feactures = {
                 "Brown the beef better. Lean ground beef – I like to use 85% lean angus. Garlic – use fresh  chopped. Spices – chili powder, cumin, onion powder.",
               price: 21.99,
               discount: 15.99,
+              latitude: 40.78825,
+              longitude: -112.4324,
               porcentajedescount: 30,
               image: require("../../assets/dishes/dish8.png"),
               reviews: 45,
@@ -671,6 +727,8 @@ export const feactures = {
               description:
                 "Brown the beef better. Lean ground beef – I like to use 85% lean angus. Garlic – use fresh  chopped. Spices – chili powder, cumin, onion powder.",
               price: 18.99,
+              latitude: 40.78825,
+              longitude: -112.4324,
               restaurant: "Starbucks",
               discount: 15.99,
               porcentajedescount: 30,
@@ -691,7 +749,8 @@ export const feactures = {
               description:
                 "Brown the beef better. Lean ground beef – I like to use 85% lean angus. Garlic – use fresh  chopped. Spices – chili powder, cumin, onion powder.",
               price: 15.99,
-
+              latitude: 40.78825,
+              longitude: -112.4324,
               discount: 12.99,
               porcentajedescount: 30,
               image: require("../../assets/dishes/dish5.png"),
@@ -724,6 +783,7 @@ export const feactures = {
         id: 16,
         restaurant: "Taquería Lupita",
         name: "Tacos al Pastor",
+
         description:
           "Brown the beef better. Lean ground beef – I like to use 85% lean angus. Garlic – use fresh  chopped. Spices – chili powder, cumin, onion powder.",
         price: 2.99,

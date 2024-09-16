@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import { DishData } from "@/presentation/types/interfaces";
 
 export interface CounterState {
-  dish: number | null;
+  dish: DishData | null;
 }
 
 const initialState: CounterState = {
@@ -13,7 +14,7 @@ export const dishSlice = createSlice({
   name: "dish",
   initialState,
   reducers: {
-    setdish: (state, action: PayloadAction<number>) => {
+    setdish: (state, action: PayloadAction<DishData>) => {
       state.dish = action.payload;
     },
   },

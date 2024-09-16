@@ -79,20 +79,6 @@ function AuthenticatedStack() {
         options={{ presentation: "modal" }}
         component={CartScreen}
       />
-    </Stack.Navigator>
-  );
-}
-
-// RestaurantStack: Pantallas que no deben mostrar el TabNavigator
-function RestaurantStack() {
-  return (
-    <Stack.Navigator
-      screenOptions={{
-        headerShown: false,
-      }}
-    >
-      <Stack.Screen name="Restaurant" component={RestaurantScreen} />
-      <Stack.Screen name="Dish" component={DishScreen} />
       <Stack.Screen
         name="Checkout"
         component={CheckoutScreen}
@@ -108,6 +94,20 @@ function RestaurantStack() {
         options={{ presentation: "fullScreenModal" }}
         component={DeliveryScreen}
       />
+    </Stack.Navigator>
+  );
+}
+
+// RestaurantStack: Pantallas que no deben mostrar el TabNavigator
+function RestaurantStack() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name="Restaurant" component={RestaurantScreen} />
+      <Stack.Screen name="Dish" component={DishScreen} />
     </Stack.Navigator>
   );
 }

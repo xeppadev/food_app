@@ -13,6 +13,8 @@ export interface RestaurantData {
   address: string;
   logo: any;
   colorLogo: string;
+  latitude: number;
+  longitude: number;
   type: string;
   stars: number;
   time: string;
@@ -81,6 +83,8 @@ export interface DishData {
   name: string;
   restaurant: string;
   description: string;
+  latitude: number;
+  longitude: number;
   price: number;
   image: any;
   stars: number;

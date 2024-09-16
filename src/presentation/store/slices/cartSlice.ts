@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createSelector } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface CounterState {
@@ -61,8 +61,10 @@ export const { addToCart, removeFromCart, emptyCart } = cartSlice.actions;
 export const selectCartItems = (state: { cart: CounterState }) =>
   state.cart.items;
 
-export const selectCartItemById = (state: { cart: CounterState }, id: number) =>
-  state.cart.items.find((item) => item.id === id);
+export const selectCartItemById = createSelector(
+  [selectCartItems, (state: { cart: CounterState }, id: number) => id],
+  (items, id) => items.filter((item) => item.id === id),
+);
 
 export const selectCartTotal = (state: { cart: CounterState }) =>
   state.cart.items.reduce((acc, item) => (acc = acc + item.price), 0);

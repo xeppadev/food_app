@@ -8,21 +8,38 @@ import { useState } from "react";
 import { DishData } from "../types/interfaces";
 import CartIcon from "../components/AddCart";
 import { StatusBar } from "expo-status-bar";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../store";
 import { setdish } from "../store/slices/dishSlice";
+import {
+  addToCart,
+  removeFromCart,
+  selectCartItemById,
+} from "../store/slices/cartSlice";
 
 export default function DishScreen() {
   const [isChecked, setChecked] = useState(false);
   const navigation = useNavigation();
   const { params } = useRoute();
+
   let items = (params as { data: DishData }).data;
   const dispatch = useDispatch();
-
+  const totalItems = useSelector((state: RootState) =>
+    selectCartItemById(state, items.id),
+  );
   useEffect(() => {
     if (items && items.id) {
       dispatch(setdish({ ...items }));
     }
   }, [dispatch, items]);
+
+  const handleIncrease = () => {
+    dispatch(addToCart({ ...items }));
+  };
+
+  const handleDecrease = () => {
+    dispatch(removeFromCart({ ...items }));
+  };
 
   return (
     <View className="h-full">
@@ -73,14 +90,19 @@ export default function DishScreen() {
             <View className="flex flex-row items-center space-x-2">
               <TouchableOpacity
                 className="p-1 rounded-full bg-white border border-[#FE724C]"
-                onPress={() => {}}
+                disabled={totalItems?.length === 0}
+                onPress={() => {
+                  handleDecrease();
+                }}
               >
                 <Iconify icon="tabler:minus" size={20} color="#FE724C" />
               </TouchableOpacity>
-              <Text className="text-lg font-bold">1</Text>
+              <Text className="text-lg font-bold">{totalItems?.length}</Text>
               <TouchableOpacity
                 className="p-1 rounded-full bg-[#FE724C] border border-[#FE724C]"
-                onPress={() => {}}
+                onPress={() => {
+                  handleIncrease();
+                }}
               >
                 <Iconify icon="ic:round-add" size={20} color="white" />
               </TouchableOpacity>

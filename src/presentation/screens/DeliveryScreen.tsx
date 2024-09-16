@@ -2,16 +2,19 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import MapView, { Marker } from "react-native-maps";
 import { Iconify } from "react-native-iconify";
+import { useSelector } from "react-redux";
+import { selectDish } from "../store/slices/dishSlice";
 import { useNavigation } from "@react-navigation/native";
 
 export default function DeliveryScreen() {
+  const restaurant = useSelector(selectDish);
   const navigation = useNavigation();
   return (
     <View className="flex-1">
       <MapView
         initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
+          latitude: restaurant?.latitude || 37.78825,
+          longitude: restaurant?.longitude || -122.4324,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}
@@ -23,13 +26,13 @@ export default function DeliveryScreen() {
             latitude: 37.78825,
             longitude: -122.4324,
           }}
-          title="McDonald's"
-          description="Hot Burgers"
+          title={restaurant?.restaurant}
+          description="Here is the restaurant"
         />
       </MapView>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate("HomeTab");
+          navigation.navigate("HomeTab" as never);
         }}
         className=" absolute z-10 left-5 top-10 rounded-full bg-white p-2"
       >
