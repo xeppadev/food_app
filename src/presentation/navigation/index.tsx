@@ -74,6 +74,11 @@ function AuthenticatedStack() {
     >
       <Stack.Screen name="MainTabs" component={MainTabs} />
       <Stack.Screen name="RestaurantStack" component={RestaurantStack} />
+      <Stack.Screen
+        name="Cart"
+        options={{ presentation: "modal" }}
+        component={CartScreen}
+      />
     </Stack.Navigator>
   );
 }
@@ -102,11 +107,6 @@ function RestaurantStack() {
         name="Delivery"
         options={{ presentation: "fullScreenModal" }}
         component={DeliveryScreen}
-      />
-      <Stack.Screen
-        name="Cart"
-        options={{ presentation: "modal" }}
-        component={CartScreen}
       />
     </Stack.Navigator>
   );

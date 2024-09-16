@@ -8,11 +8,14 @@ import HeaderSearch from "../components/HeaderSearch";
 import Categories from "../components/Categories";
 import FeacturedRow from "../components/FeacturedRow";
 import PopularDishes from "../components/PopularDishes";
+import Ubication from "../components/Ubication";
 
 export default function HomeScreen() {
   return (
     <SafeAreaView className="bg-white">
       <StatusBar style="auto" />
+      {/* Ubication zone */}
+      <Ubication />
       {/* Search Bar */}
       <HeaderSearch />
 

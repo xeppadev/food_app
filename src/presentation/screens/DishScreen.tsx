@@ -1,14 +1,15 @@
 import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useRoute, useNavigation } from "@react-navigation/native";
 import { Iconify } from "react-native-iconify";
 import Checkbox from "expo-checkbox";
 import { useState } from "react";
 import { DishData } from "../types/interfaces";
-import CartIcon from "../components/CartIcon";
+import CartIcon from "../components/AddCart";
 import { StatusBar } from "expo-status-bar";
 import { useDispatch } from "react-redux";
+import { setdish } from "../store/slices/dishSlice";
 
 export default function DishScreen() {
   const [isChecked, setChecked] = useState(false);
@@ -16,6 +17,12 @@ export default function DishScreen() {
   const { params } = useRoute();
   let items = (params as { data: DishData }).data;
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (items && items.id) {
+      dispatch(setdish({ ...items }));
+    }
+  }, [dispatch, items]);
 
   return (
     <View className="h-full">

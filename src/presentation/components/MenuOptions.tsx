@@ -15,7 +15,7 @@ export default function MenuOptions() {
         <View className=" bg-white h-1/2 shadow rounded-2xl p-3">
           <Text className="text-lg font-semibold">Pharmacies </Text>
 
-          <Text className="text-[65px] text-center font-semibold">💊</Text>
+          <Text className="text-[65px] text-center font-semibold">🚑</Text>
         </View>
         <View className=" bg-white  h-1/2 shadow rounded-2xl p-3">
           <Text className="text-lg font-semibold">Supermarkets</Text>

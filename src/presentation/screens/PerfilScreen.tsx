@@ -7,14 +7,13 @@ import {
   TextInput,
 } from "react-native";
 import React from "react";
-import { useNavigation } from "@react-navigation/native";
+
 import { StatusBar } from "expo-status-bar";
 import { Iconify } from "react-native-iconify";
 import { signOut } from "firebase/auth";
 import { auth } from "@/config/firebase-config";
 
 export default function PerfilScreen() {
-  const navigation = useNavigation();
   const handleSignOut = async () => {
     await signOut(auth);
   };
@@ -28,14 +27,7 @@ export default function PerfilScreen() {
             className="w-full h-72 "
             source={require("../../../assets/Group.png")}
           />
-          <TouchableOpacity
-            onPress={() => {
-              navigation.goBack();
-            }}
-            className="absolute top-14 left-4 rounded-full bg-white p-2"
-          >
-            <Iconify icon="mdi:arrow-left" size={20} color="#000" />
-          </TouchableOpacity>
+
           <View className="absolute  bottom-2 left-[33%] z-10">
             <View className="relative ">
               <Image

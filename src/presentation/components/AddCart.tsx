@@ -6,7 +6,7 @@ interface RootParamList {
   Cart: undefined;
 }
 
-export default function CartIcon() {
+export default function AddCart() {
   const navigation = useNavigation<NavigationProp<RootParamList>>();
 
   return (

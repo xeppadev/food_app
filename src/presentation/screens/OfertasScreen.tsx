@@ -6,13 +6,16 @@ import { feactures } from "@/api/datos";
 import { StatusBar } from "expo-status-bar";
 import PopularDishes from "../components/PopularDishes";
 import MenuOptions from "../components/MenuOptions";
-import CartOfertas from "../components/CartOfertas";
+import Ubication from "../components/Ubication";
+
 import OfertasRow from "../components/OfertasRow";
 
 export default function OfertasScreen() {
   return (
     <SafeAreaView className="bg-white">
       <StatusBar style="auto" />
+      {/* Ubication zone */}
+      <Ubication />
       {/* Search Bar */}
       <HeaderSearch />
 
